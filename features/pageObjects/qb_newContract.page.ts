@@ -17,7 +17,7 @@ export class newContractPage {
   
   public async SelectLibraryContract(value: string) {
 
-    let ddlElem = element(by.xpath(`//div[@class='cdk-overlay-pane']//span[contains(text(),"${value}")]`))
+    let ddlElem = element(by.xpath(`//div[@class='cdk-overlay-pane']//span[contains(text(),"${value}")]`));
     browser.sleep(200);
     await ddlElem.click();
 

@@ -26,33 +26,10 @@ export = function cventSteps() {
     this.After(async () => {
         await browserHacks.ClearBrowserData();
     });
-   
-  this.Given(/^I am on homepage$/, async () => {
-    await dashboard.IsUserOnDashboard();
-  });
 
-    this.Then(/^Is User logged in$/, async () => {
+    this.Then(/^Go to Setup & validate International Checkbox$/, async () => {
         await dashboard.CheckUserLogin();
 
-    });
-  
-    this.When(/^Switch my stats toggle$/, async () => {
-      await dashboard.SwitchMyStatsToggle();
-    });
-  
-    this.Then(/^Go ot Contract Center$/, async () => {
-      await dashboard.GoToContractCenter();
-    });
-  
-    this.Then(/^Check Hover Text$/, async () => {
-      await dashboard.CheckMyProfileHover();
-    });
-  
-  this.Then(/^Check Jira Icon on Dashboard$/, async () => {
-    await dashboard.CheckJiraIcon();
-  });
-    this.Then(/^Go to Setup$/, async () => {
-      await dashboard.GoToSetup();
     });
 
   

@@ -9,8 +9,6 @@ export class Randomizer {
   
     for (var i = 0; i < value; i++)
       str += possible.charAt(Math.floor(Math.random() * possible.length));
-  
     return str;
-
   }
 }

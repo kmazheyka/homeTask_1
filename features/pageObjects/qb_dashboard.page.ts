@@ -7,35 +7,19 @@ import { qb_BaseRepository } from "../objectsRepository/qb_base.obj";
 import chai = require('chai');
 
 const defaultTimeout = 30000;
-//var assert = require('chai').assert;
-//This class serves as an actions list on the page can be made, one page equals one class file, i.e. "home.page.ts"
+
 export class dashboardPage {
 
   //Locators      
     readonly baseElements = new qb_BaseRepository;
     readonly dashboardElements = new qb_dashbooardRepository;
-
-
-
   
   public async IsUserOnDashboard(): promise.Promise<void> {
-    //Check that element is both present in DOM and visible on screen
-    // let userName: string;
-    // userName = this.dashboardElements.userNameHeader.getText().toString();
-
        await browser.wait(ExpectedConditions.visibilityOf(this.dashboardElements.SwitchUserButton), defaultTimeout, "user is not on dashboard");
-
   }
 
-
   public async CheckUserLogin(): promise.Promise<void> {
-    //Check that element is both present in DOM and visible on screen
-    // let userName: string;
-    // userName = this.dashboardElements.userNameHeader.getText().toString();
-
-    await browser.wait(ExpectedConditions.textToBePresentInElement(this.dashboardElements.userNameHeader, "Hello, Joe Harzewski"), defaultTimeout, "User is not logged in"); 
-
-    //await browser.wait(ExpectedConditions.visibilityOf(this.onlinerElements.onlinerLogo), defaultTimeout, "Homepage not loaded");
+    await browser.wait(ExpectedConditions.textToBePresentInElement(this.dashboardElements.userNameHeader, "Hello, Joe Harzewski"), defaultTimeout, "User is not logged in");
   }
 
   public async SwitchMyStatsToggle(): promise.Promise<void> {
@@ -60,11 +44,24 @@ export class dashboardPage {
 
   }
 
-
   public async GoToContractCenter(): promise.Promise<void>{
     await this.baseElements.SideBarContractCenter.click();
-    
   }
 
+  public async GoToSetup(): promise.Promise<void>{
+    await this.baseElements.SideBarSetup.click();
+  }
 
+  public async CheckMyProfileHover(): promise.Promise<void>{
+    browser.waitForAngular();
+    await browser.actions().mouseMove(this.dashboardElements.SideBarMyProfileButton).perform();
+    await browser.wait(ExpectedConditions.presenceOf(element(by.xpath("//mat-tooltip-component//div[contains(text(), 'My Profile')]"))), defaultTimeout, 'Such Hover isnt displayed');
+
+  }
+
+  public async CheckJiraIcon(): promise.Promise<void>{
+    await browser.driver.switchTo().frame(element(by.xpath("//iframe[@id='jsd-widget']")).getWebElement());
+    await browser.wait(ExpectedConditions.presenceOf(this.dashboardElements.JiraIcon), defaultTimeout, 'Jira Icon isnt presented');
+
+  }
 }

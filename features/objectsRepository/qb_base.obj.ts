@@ -6,6 +6,7 @@ export class qb_BaseRepository {
 
 //SideBar buttons
   readonly SideBarContractCenter = element(by.xpath("//div[@class='menu-container']//a[contains(@href, 'contract')]/div"));
+  readonly SideBarSetup  = element(by.xpath("//div[@class='menu-container']//a[contains(@href, '/admin/company-info')]/mat-icon"));
 
 //Progress
   readonly ProgressCircle = element(by.xpath("//div[contains(@class, 'loader')]//mat-spinner"));

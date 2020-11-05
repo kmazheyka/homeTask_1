@@ -32,15 +32,15 @@ export class contractCenterPage {
     await this.baseElements.SwitchCrmButton.click();
     browser.sleep(1000);
     await this.newContractElements.AccountBusinessCompanyNameInput.sendKeys(this.random.randomString(10), defaultTimeout);
-    //browser.sleep(500);
     await this.newContractElements.ContactNameInput.sendKeys(this.random.randomString(10), defaultTimeout);
-   // browser.sleep(500);
-    await this.newContractElements.ContractName.sendKeys(this.random.randomString(10), defaultTimeout);
-   // browser.sleep(500);
+    await this.newContractElements.ContractName.sendKeys(this.random.randomString(10), defaultTimeout)
     await this.newContractElements.StateRegionInput.sendKeys(this.random.randomString(10), defaultTimeout);
-   // browser.sleep(500);
     await this.newContractElements.DocumentDropdown.click();
     await this.newContractPage.SelectLibraryContract("ESA");
+    let doc = this.newContractElements.DocumentDropdown.getAttribute("textContent");
+    await browser.wait(ExpectedConditions.textToBePresentInElement(this.newContractElements.DocumentDropdown, "ESA"));
+
+
     await this.newContractElements.BuildContractButton.click();
     await this.basePage.SkipSendingAndMapping();
     
