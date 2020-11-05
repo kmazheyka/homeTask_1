@@ -13,7 +13,7 @@
   },
   "include": [
     "features/**/*.ts"
-  ],
+, "features/stepDefinitions/qb_newContract.steps"  ],
   "exclude": [
     "node_modules"
   ]
