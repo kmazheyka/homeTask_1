@@ -30,13 +30,10 @@ export = function cventSteps() {
   
   let number;
 
-
     this.Then(/^Create Simple Contract$/, async () => {
       number =  await contractCenterPare.CreateSimpleContract();
 
     });
-  
-  
   
     this.When(/^Check Contract in Grid$/, async () => {
     await contractCenterPare.CheckContractInGrid(number);

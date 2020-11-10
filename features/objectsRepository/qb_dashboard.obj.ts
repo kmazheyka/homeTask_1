@@ -12,9 +12,4 @@ export class qb_dashbooardRepository {
   readonly JiraIcon = element(by.xpath("//div[@id='help-button']"));
   readonly SideBarContractCenter = element(by.xpath("//div[@class='menu-container']//a[contains(@href, 'contract')]/div"));
 
-
-
-
-  //Iframe, needed to enter and find some elements in DOM, if you won't switch to it - you will have error "Element Not Found"
-  readonly searchPopupIframe = element(by.css(".modal-iframe"));
 }

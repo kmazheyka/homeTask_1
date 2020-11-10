@@ -22,28 +22,23 @@ export class dashboardPage {
     await browser.wait(ExpectedConditions.textToBePresentInElement(this.dashboardElements.userNameHeader, "Hello, Joe Harzewski"), defaultTimeout, "User is not logged in");
   }
 
-  public async SwitchMyStatsToggle(): promise.Promise<void> {
+  public async SwitchMyStatsToggleAndCheckState(): promise.Promise<void> {
   //  debugger;
-    let flag = this.dashboardElements.MyStatsToggle_atr.getAttribute("ariaChecked");
+    let flag = await this.dashboardElements.MyStatsToggle_atr.getAttribute("ariaChecked");
     if (await flag == "true") {
       await this.dashboardElements.MyStatsToggle.click();
       browser.refresh();
-      flag = this.dashboardElements.MyStatsToggle_atr.getAttribute("ariaChecked");
-      assert.isFalse(flag, "MyStats toggle is not saved state");
-      assert.equal(Promise.resolve(flag), Promise.resolve('false'), "MyStats toggle is not saved state");
+      flag = await this.dashboardElements.MyStatsToggle_atr.getAttribute("ariaChecked");
+     assert.equal(flag, 'false', "MyStats toggle is not saved state");
     }
     else {
       await this.dashboardElements.MyStatsToggle.click();
       await browser.refresh();
-       flag = this.dashboardElements.MyStatsToggle_atr.getAttribute("ariaChecked");
-       assert.equal(Promise.resolve(flag), Promise.resolve('true'), "MyStats toggle is not saved state");
+       flag = await this.dashboardElements.MyStatsToggle_atr.getAttribute("ariaChecked");
+       assert.equal(flag, 'true', "MyStats toggle is not saved state");
     }
   }
  
-  public async GetMyStatsToggleState(): promise.Promise<void> {
-
-  }
-
   public async GoToContractCenter(): promise.Promise<void>{
     await this.baseElements.SideBarContractCenter.click();
   }
@@ -56,12 +51,10 @@ export class dashboardPage {
     browser.waitForAngular();
     await browser.actions().mouseMove(this.dashboardElements.SideBarMyProfileButton).perform();
     await browser.wait(ExpectedConditions.presenceOf(element(by.xpath("//mat-tooltip-component//div[contains(text(), 'My Profile')]"))), defaultTimeout, 'Such Hover isnt displayed');
-
   }
 
   public async CheckJiraIcon(): promise.Promise<void>{
     await browser.driver.switchTo().frame(element(by.xpath("//iframe[@id='jsd-widget']")).getWebElement());
     await browser.wait(ExpectedConditions.presenceOf(this.dashboardElements.JiraIcon), defaultTimeout, 'Jira Icon isnt presented');
-
   }
 }

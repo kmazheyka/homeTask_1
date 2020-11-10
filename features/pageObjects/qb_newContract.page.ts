@@ -11,21 +11,11 @@ const defaultTimeout = 20000;
 export class newContractPage {
 
   //Locators      
- // readonly dashboardElements = new qb_dashbooardRepository;
 
-
-  
   public async SelectLibraryContract(value: string) {
 
     let ddlElem = element(by.xpath(`//div[@class='cdk-overlay-pane']//span[contains(text(),"${value}")]`));
     browser.sleep(200);
     await ddlElem.click();
-
-
   }
-
-
-  
-
-
 }

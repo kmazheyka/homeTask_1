@@ -27,19 +27,18 @@ export = function cventSteps() {
         await browserHacks.ClearBrowserData();
     });
    
-  this.Given(/^I am on homepage$/, async () => {
+    this.Given(/^I am on homepage$/, async () => {
     await dashboard.IsUserOnDashboard();
-  });
+    });
 
     this.Then(/^Is User logged in$/, async () => {
         await dashboard.CheckUserLogin();
-
     });
   
     this.When(/^Switch my stats toggle$/, async () => {
-      await dashboard.SwitchMyStatsToggle();
+      await dashboard.SwitchMyStatsToggleAndCheckState();
     });
-  
+
     this.Then(/^Go ot Contract Center$/, async () => {
       await dashboard.GoToContractCenter();
     });
@@ -48,13 +47,12 @@ export = function cventSteps() {
       await dashboard.CheckMyProfileHover();
     });
   
-  this.Then(/^Check Jira Icon on Dashboard$/, async () => {
+    this.Then(/^Check Jira Icon on Dashboard$/, async () => {
     await dashboard.CheckJiraIcon();
-  });
+    });
+  
     this.Then(/^Go to Setup$/, async () => {
       await dashboard.GoToSetup();
     });
-
-  
 }
   

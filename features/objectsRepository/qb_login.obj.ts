@@ -6,14 +6,4 @@ export class qb_loginRepository {
   readonly PasswordInput = element(by.xpath("//input[@formcontrolname='password']"));
   readonly LoginButton = element(by.xpath("//button[@type='submit']"));
 
-
-
-
-
-
-
-
-
-  //Iframe, needed to enter and find some elements in DOM, if you won't switch to it - you will have error "Element Not Found"
-  readonly searchPopupIframe = element(by.css(".modal-iframe"));
 }

@@ -20,16 +20,5 @@ export class qb_BaseRepository {
   readonly CompletedModalOkButton = element(by.xpath("//mat-dialog-container//button/span[contains(text(), 'OK')]"));
 
   // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly = element(by.xpath());
-  // readonly  = element(by.xpath());
 
-
-  
 }

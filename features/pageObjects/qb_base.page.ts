@@ -16,8 +16,6 @@ export class basePage {
 
   //Locators      
 
-
-
   public async SkipSendingAndMapping(): promise.Promise<void>{
     await browser.wait(ExpectedConditions.presenceOf(this.basePage.NoThanksButton), defaultTimeout);
     await this.basePage.NoThanksButton.click();
@@ -26,7 +24,5 @@ export class basePage {
     await browser.wait(ExpectedConditions.presenceOf(this.basePage.CompletedModalOkButton), defaultTimeout);
     await this.basePage.CompletedModalOkButton.click();
   }
-
-
 
 }

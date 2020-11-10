@@ -16,9 +16,9 @@ exports.config = {
     params: {
         defaultTimeout: 60000,
         onlinerByURL: "https://www.onliner.by/",
-        base_url: "x",
-        default_user: "x",
-        default_password: "x"
+        base_url: "https://stage.srw.aisnovations.com/",
+        default_user: "joe",
+        default_password: "iceman1!"
     },
 
 

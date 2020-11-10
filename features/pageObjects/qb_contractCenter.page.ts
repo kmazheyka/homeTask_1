@@ -37,18 +37,13 @@ export class contractCenterPage {
     await this.newContractElements.StateRegionInput.sendKeys(this.random.randomString(10), defaultTimeout);
     await this.newContractElements.DocumentDropdown.click();
     await this.newContractPage.SelectLibraryContract("ESA");
-    let doc = this.newContractElements.DocumentDropdown.getAttribute("textContent");
     await browser.wait(ExpectedConditions.textToBePresentInElement(this.newContractElements.DocumentDropdown, "ESA"));
-
-
     await this.newContractElements.BuildContractButton.click();
     await this.basePage.SkipSendingAndMapping();
-    
     return  number;
   }
 
   public async CheckContractInGrid(itemId): promise.Promise<void>{
-    
     let ContractRow = element(by.xpath(`//qb-data-table//mat-row[not(contains(@class,'expanded-row'))][1]//mat-cell//span[contains(text(),'${itemId}')]`));
     await browser.wait(ExpectedConditions.presenceOf(ContractRow), defaultTimeout, 'Contract isnt exist in Grid');
   }

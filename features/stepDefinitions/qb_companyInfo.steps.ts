@@ -1,8 +1,7 @@
 import { browser } from "protractor";
 import { BrowserHacks } from "../../support/browserHacks";
 import chai = require('chai');
-import { loginPage } from "../pageObjects/qb_login.page";
-import { dashboardPage } from "../pageObjects/qb_dashboard.page";
+import { companyInfoPage } from "../pageObjects/qb_companyinfo.page";
 
 export = function cventSteps() {
 
@@ -12,7 +11,7 @@ export = function cventSteps() {
     //Loading browser hacks
     let browserHacks = new BrowserHacks;
 
-    let dashboard = new dashboardPage; 
+    let companyInfo = new companyInfoPage; 
  
     let uniqueIndentifier: string;
 
@@ -27,11 +26,12 @@ export = function cventSteps() {
         await browserHacks.ClearBrowserData();
     });
 
-    this.Then(/^Go to Setup & validate International Checkbox$/, async () => {
-        await dashboard.CheckUserLogin();
-
+    this.Then(/^Check International Checkbox$/, async () => {
+        companyInfo.CheckInternationalCompany();
     });
 
-  
+    this.When(/^Validate International Checkbox State$/, async () => {
+        companyInfo.ValidateInternationalCheckBoxState();
+    });
 }
   
