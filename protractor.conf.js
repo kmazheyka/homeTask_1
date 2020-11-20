@@ -18,7 +18,9 @@ exports.config = {
         onlinerByURL: "https://www.onliner.by/",
         base_url: "https://stage.srw.aisnovations.com/",
         default_user: "joe",
-        default_password: "iceman1!"
+        default_password: "iceman1!",
+        onlinerUser: "freez_k",
+        onlinerPassword: "pfgjkzhmt",
     },
 
 
@@ -73,7 +75,7 @@ exports.config = {
         //-----------------------------------------
         //TODO: Optimize logger for parallel mode
         shardTestFiles: true,
-        maxInstances: 1,
+        maxInstances: 4,
         chromeOptions: {
             //Standard mode
             args: ["--window-size=1920,1080"]
