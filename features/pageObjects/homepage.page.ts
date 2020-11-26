@@ -6,7 +6,7 @@ import { assert } from 'chai';
 const defaultTimeout = 60000;
 
 export class Homepage {
-   
+
     readonly homepageElements = new homepageRepository;
     readonly onlinerElements = new headerRepository;
 
@@ -66,22 +66,29 @@ export class Homepage {
         let expectedText = await (element(by.xpath("//li[@class='search__result'][1]//a[@class='product__title-link']"))).getAttribute("text");
         await (element(by.xpath("//li[@class='search__result'][1]"))).click();
         await this.homepageElements.offersButton.click();
-        browser.sleep(2000);
+        browser.sleep(3000);
         await browser.executeScript('window.scrollTo(200,200)');
-        browser.sleep(1000);
+        await browser.wait(ExpectedConditions.presenceOf(this.homepageElements.minskButton), defaultTimeout);
+        debugger;
         await this.homepageElements.minskButton.click();
+
         var buttonsArr = await browser.findElements(by.xpath("//a[contains(@class,'button-style button-style_base-alter offers-list__button offers-list__button_cart button-style_expletive')]"));
+
         await buttonsArr[0].click();
-        //browser.sleep(10000);
+
+        await browser.wait(ExpectedConditions.visibilityOf(this.homepageElements.cartFullButton), defaultTimeout);
         await this.homepageElements.cartFullButton.click();
-        //browser.sleep(10000);
+
+        await browser.wait(ExpectedConditions.visibilityOf(this.homepageElements.cartTitle), defaultTimeout);
+
         var part1 = await element(by.xpath("//div[contains(@class,'cart-form__description cart-form__description_other cart-form__description_tiny cart-form__description_condensed-alter helpers_hide_tablet')]")).getAttribute("innerText");
         var part2 = await element(by.xpath("//div[contains(@class,'cart-form__description cart-form__description_primary cart-form__description_base-alter cart-form__description_font-weight_semibold cart-form__description_condensed-other')]//a")).getAttribute("innerText");
         var actualText = part1 + " " + part2
         assert.equal(expectedText, actualText, "In cart  added another goods");
         await browser.actions().mouseMove(this.homepageElements.counterInCart).perform();
-        //browser.sleep(1000);
+        await browser.wait(ExpectedConditions.presenceOf(this.homepageElements.deleteButtonInCart), defaultTimeout);
         await this.homepageElements.deleteButtonInCart.click();
-        browser.sleep(1000);
+ 
     }
+
 }

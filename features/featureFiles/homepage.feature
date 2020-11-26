@@ -3,21 +3,21 @@ Feature: Onliner showcase
 
  
 
-     Scenario: Redirect to news block
+    #  Scenario: Redirect to news block
 
-        Given I am on Onliner homepage
-        Then Check Main News Blocks
-        When Redirect to "Авто" Block
+    #     Given I am on Onliner homepage
+    #     Then Check Main News Blocks
+    #     When Redirect to "Авто" Block
 
-     Scenario: Log In and validate user
+    #  Scenario: Log In and validate user
 
-        Given I am on Onliner homepage
-        Then LoginIn and check user
+    #     Given I am on Onliner homepage
+    #     Then LoginIn and check user
 
-     Scenario: Log In
+    #  Scenario: Log In
 
-        Given I am on Onliner homepage
-        Then LogIn
+    #     Given I am on Onliner homepage
+    #     Then LogIn
 
        Scenario: Add to cart
 

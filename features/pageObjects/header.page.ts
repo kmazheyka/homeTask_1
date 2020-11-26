@@ -2,7 +2,7 @@ import { browser, ExpectedConditions, promise, element, by } from "protractor";
 import { headerRepository } from "../objectsRepository/header.obj";
 import { assert } from 'chai';
 
-const defaultTimeout = 10000;
+const defaultTimeout = 60000;
 
 export class Header {
     

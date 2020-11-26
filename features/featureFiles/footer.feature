@@ -3,7 +3,7 @@ Feature: Onliner showcase
 
 
 
-     Scenario: Go to suppurt page
+    #  Scenario: Go to suppurt page
 
-         Given I am on Onliner homepage
-         Then Go to support page and validate
+    #      Given I am on Onliner homepage
+    #      Then Go to support page and validate

@@ -2,7 +2,7 @@ import { browser, ExpectedConditions, promise, element, by } from "protractor";
 import { FooterRepository } from "../objectsRepository/footer.obj";
 import { assert } from 'chai';
 
-const defaultTimeout = 10000;
+const defaultTimeout = 30000;
 
 
 export class Footer {

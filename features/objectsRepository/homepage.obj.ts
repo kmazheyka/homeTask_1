@@ -18,7 +18,7 @@ export class homepageRepository {
   readonly minskButton = element(by.xpath("//div[@class='offers-form']//div[contains(@class, 'offers-form__control')]//span[contains(@class, 'button-style')]"));
   readonly counterInCart = element(by.xpath("//div[@class = 'input-style__wrapper cart-form__input-wrapper cart-form__input-wrapper_nonadaptive']"));
   readonly deleteButtonInCart = element(by.xpath("//div[@class = 'cart-form__offers-part cart-form__offers-part_remove']"));
-
+  readonly cartTitle = element(by.xpath("//div[contains(@class, 'cart-form__title')]"));
 
 }
 
